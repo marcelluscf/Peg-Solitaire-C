@@ -10,7 +10,7 @@ void play_game(void)
     {
         enum move_result move_result = SUCCESSFUL_MOVE;
         enum cell_contents board[BOARD_HEIGHT][BOARD_WIDTH];
-        init_board(board);
+        init_board(board);			//body in line 5 board.c, header in in line 35 from board.h					
 
         /* game loop */
         while (!is_game_over(board) && move_result != QUIT_GAME)
@@ -27,9 +27,9 @@ void play_game(void)
 
 void display_result(enum cell_contents board[][BOARD_WIDTH])
 {
-    int peg_count = get_peg_count(board);
+    int peg_count = get_peg_count(board);			//body 119 board.c, header 56 board.h
 
-    display_board(board);
+    display_board(board);			//body in line 15 from board.c, header in line 39 from board.h
     printf("\n");
 
     if (peg_count == 1)
@@ -171,7 +171,7 @@ enum move_result player_move(enum cell_contents board[][BOARD_WIDTH])
 
     while (TRUE)
     {
-        display_board(board);
+        display_board(board);				//body in line 15 from board.c, header in line 39 from board.h		
 
         printf("\nPlease enter a move [enter Q or ctrl-D to quit]: ");
 

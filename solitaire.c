@@ -89,5 +89,5 @@ void display_how_to_play(void)
     printf("\nhyphens and tabs can also be used.");
 
     printf("\n\n\nPress ENTER to return to menu");
-    if (getchar() != '\n') read_rest_of_line();
+    if (getchar() != '\n') read_rest_of_line();			//header in line 12 from utility.h			
 }

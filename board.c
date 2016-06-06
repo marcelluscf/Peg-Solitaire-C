@@ -2,7 +2,7 @@
 #include "board.h"
 
 /* copies the master board to a local copy for each game */
-void init_board(enum cell_contents board[][BOARD_WIDTH])
+void init_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 35 from board.h
 {
     int x, y;
     for (y = 0; y < BOARD_HEIGHT; y++)
@@ -12,22 +12,22 @@ void init_board(enum cell_contents board[][BOARD_WIDTH])
 
 
 /* display the game board to the screen */
-void display_board(enum cell_contents board[][BOARD_WIDTH])
+void display_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 39 from board.h		
 {
     int y;
 
     printf("\n\n\n");
     for (y = 0; y < BOARD_HEIGHT; y++)
     {
-        display_line_row(y, board);
-        display_peg_row(y, board);
+        display_line_row(y, board);						//header in line 42 from board.h, body in line 30 from board.c
+        display_peg_row(y, board);						//header line 44 board.h, body 58 body.c
     }
-    display_line_row(BOARD_HEIGHT, board);
-    display_horizontal_coords();
+    display_line_row(BOARD_HEIGHT, board);					//header in line 42 from board.h , body in line 30 from board.c
+    display_horizontal_coords();						//header line 44 board.h, body line 85 board.c
 }
 
 
-void display_line_row(int y, enum cell_contents board[][BOARD_WIDTH])
+void display_line_row(int y, enum cell_contents board[][BOARD_WIDTH])		//header in line 42 from board.h
 {
     BOOLEAN line_started = FALSE;
     int x;
@@ -55,7 +55,7 @@ void display_line_row(int y, enum cell_contents board[][BOARD_WIDTH])
     printf("\n");
 }
 
-void display_peg_row(int y, enum cell_contents board[][BOARD_WIDTH])
+void display_peg_row(int y, enum cell_contents board[][BOARD_WIDTH])			//header 44 board.h
 {
     int x;
 
@@ -82,7 +82,7 @@ void display_peg_row(int y, enum cell_contents board[][BOARD_WIDTH])
     printf("\n");
 }
 
-void display_horizontal_coords(void)
+void display_horizontal_coords(void)								//header line 44 board.h
 {
     int i;
 
@@ -116,7 +116,7 @@ BOOLEAN is_hole(int x, int y, enum cell_contents board[][BOARD_WIDTH])
 }
 
 
-int get_peg_count(enum cell_contents board[][BOARD_WIDTH])
+int get_peg_count(enum cell_contents board[][BOARD_WIDTH])			//header line 56
 {
     int count = 0;
     int x, y;

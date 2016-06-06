@@ -7,24 +7,24 @@
 
 struct position
 {
-	int x, y;
+    int x, y;
 };
 
 struct move
 {
-	struct position start, end;
+    struct position start, end;
 };
 
 enum move_validity
 {
-	VALID, MALFORMED_INPUT,
-	INVALID_START_POSITION, INVALID_END_POSITION,
-	START_NOT_PEG, END_NOT_HOLE, NOT_SAME_ROW_COLUMN, NO_PEG_TO_JUMP
+    VALID, MALFORMED_INPUT,
+    INVALID_START_POSITION, INVALID_END_POSITION,
+    START_NOT_PEG, END_NOT_HOLE, NOT_SAME_ROW_COLUMN, NO_PEG_TO_JUMP
 };
 
 enum move_result
 {
-	QUIT_GAME, SUCCESSFUL_MOVE
+    QUIT_GAME, SUCCESSFUL_MOVE
 };
 
 /* Requirement 3 - controls the flow of play in the game */

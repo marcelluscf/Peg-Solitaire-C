@@ -14,21 +14,21 @@
 
 enum cell_contents
 {
-	INVALID, HOLE, PEG
+    INVALID, HOLE, PEG
 };
 
 /* The initial game board - this is an example of the occasional
  * exception to the rule against global variables. Be aware that
  * this should be the only global variable in your program */
 static const enum cell_contents master_board[BOARD_HEIGHT][BOARD_WIDTH] = {
-	{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
-	{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
-	{ PEG, PEG, PEG, PEG, PEG, PEG, PEG },
-	{ PEG, PEG, PEG, HOLE, PEG, PEG, PEG },
-	{ PEG, PEG, PEG, PEG, PEG, PEG, PEG },
-	{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
-	{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID }
-};
+{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
+{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
+{ PEG, PEG, PEG, PEG, PEG, PEG, PEG },
+{ PEG, PEG, PEG, HOLE, PEG, PEG, PEG },
+{ PEG, PEG, PEG, PEG, PEG, PEG, PEG },
+{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
+{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID }
+        };
 
 /* Requirement 2 - copies the contents of master_board to a local
  * board for each game */

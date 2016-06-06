@@ -5,7 +5,7 @@
 
 typedef enum
 {
-	FALSE, TRUE
+    FALSE, TRUE
 } BOOLEAN;
 
 /* clears residual data from stdin */

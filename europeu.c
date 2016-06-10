@@ -1,0 +1,12 @@
+#define BOARD_WIDTH 7
+#define BOARD_HEIGHT 7
+
+static const enum cell_contents master_board_european[BOARD_HEIGHT][BOARD_WIDTH] = {
+{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID },
+{ INVALID, PEG, PEG, PEG, PEG, PEG, INVALID },
+{ PEG, PEG, PEG, HOLE, PEG, PEG, PEG, },
+{ PEG, PEG, PEG, PEG, PEG, PEG, PEG, },
+{ PEG, PEG, PEG, PEG, PEG, PEG, PEG, },
+{ INVALID, PEG, PEG, PEG, PEG, PEG, INVALID },
+{ INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID }
+        };

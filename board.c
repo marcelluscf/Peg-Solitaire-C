@@ -2,7 +2,7 @@
 #include "board.h"
 
 /* copies the master board to a local copy for each game */
-void init_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 35 from board.h 
+void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//header in line 35 from board.h 
 {
 	
     int x, y, z;
@@ -44,7 +44,13 @@ void init_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 35 f
         								for (x = 0; x < BOARD_WIDTH; x++)
             								board[y][x] = master_board_heart[y][x];
 							}
-  
+											/* Board NULL*/
+									else if (z == 7){
+											*fimjogo = 7;
+											for (y = 0; y < BOARD_HEIGHT; y++)
+        										for (x = 0; x < BOARD_WIDTH; x++)
+            										board[y][x] = master_board_heart[y][x];
+									}
 }
 
 

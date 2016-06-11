@@ -36,6 +36,7 @@ char *get_input(char *buffer)			//header in line 15 from utility.h
 }
 
 
+
 /* convert numeric grid value to letter (e.g. 2 to B) */
 char number_to_letter(int i)			//header in line 18 from utility.h
 {

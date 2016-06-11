@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     int selection = 0;
-    while (selection != 7)				// *3*
+    while (selection != 3)				// *3*
     {
         selection = process_menu();
         switch (selection)
@@ -57,11 +57,12 @@ int selection_board(void) {
 
         result = strtol(input, &end, 10);
 
-        if (*end != '\0' || result < 1 || result > 6)			// troca de 2 para 6
+        if (*end != '\0' || result < 1 || result > 7)			// troca de 2 para 6
             printf("Invalid input.\n ");
-			
-        else
-            break;
+				
+		else
+			break;
+		
     }
 	return result;
 }
@@ -85,7 +86,7 @@ int get_menu_input(void)
         result = strtol(input, &end, 10);
 
         if (*end != '\0' || result < 1 || result > 3)
-            printf("Invalid input. ");
+            printf("Invalid input.\n ");
         else
             break;
     }
@@ -104,13 +105,13 @@ void display_menu(void)
 void display_second_menu(void)
 {
 	printf("\nChoose your board:\n");
-	printf("1. Standart Board\n");
+	printf("1. Standard Board\n");
 	printf("2. Square Board\n");
 	printf("3. German Board\n");
 	printf("4. European Board\n");
 	printf("5. Diamond Board\n");
 	printf("6. Especial Board\n");
-	printf("7. Quit\n\n\n");
+	printf("7. Main menu\n\n\n");
 
 }
 

@@ -1,5 +1,5 @@
-compila : board.o game.o solitaire.o utility.o
-	cc -o compila board.o game.o solitaire.o utility.o
+jogar : board.o game.o solitaire.o utility.o
+	cc -o jogar board.o game.o solitaire.o utility.o
 board.o : board.c board.h
 	cc -c board.c
 game.o : game.c game.h
@@ -9,4 +9,4 @@ solitaire.o : solitaire.c solitaire.h
 utility.o : utility.c utility.h
 	cc -c utility.c
 clean :
-	rm compila board.o game.o solitaire.o utility.o
+	rm board.o game.o solitaire.o utility.o

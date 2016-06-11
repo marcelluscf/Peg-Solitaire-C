@@ -2,12 +2,49 @@
 #include "board.h"
 
 /* copies the master board to a local copy for each game */
-void init_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 35 from board.h
+void init_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 35 from board.h 
 {
-    int x, y;
-    for (y = 0; y < BOARD_HEIGHT; y++)
-        for (x = 0; x < BOARD_WIDTH; x++)
-            board[y][x] = master_board[y][x];
+	
+    int x, y, z;
+	z = selection_board();
+		/*Master board*/
+	if(z == 1){
+    	for (y = 0; y < BOARD_HEIGHT; y++)
+        	for (x = 0; x < BOARD_WIDTH; x++)
+            	board[y][x] = master_board[y][x];
+	}
+			/*Square board*/
+	else if(z == 2){
+    	for (y = 0; y < BOARD_HEIGHT; y++)
+        	for (x = 0; x < BOARD_WIDTH; x++)
+            	board[y][x] = master_board_square[y][x];
+	}
+				/*German board*/
+		else if(z == 3){
+    			for (y = 0; y < BOARD_HEIGHT; y++)
+        			for (x = 0; x < BOARD_WIDTH; x++)
+            			board[y][x] = master_board_german[y][x];
+		}
+
+					/*European board*/
+			else if(z == 4){
+    				for (y = 0; y < BOARD_HEIGHT; y++)
+        				for (x = 0; x < BOARD_WIDTH; x++)
+            				board[y][x] = master_board_european[y][x];
+			}
+							/*Diamond board*/
+					else if(z == 5){
+    						for (y = 0; y < BOARD_HEIGHT; y++)
+        						for (x = 0; x < BOARD_WIDTH; x++)
+            						board[y][x] = master_board_diamond[y][x];
+					}
+									/* Especial board*/
+							else if(z == 6){
+    								for (y = 0; y < BOARD_HEIGHT; y++)
+        								for (x = 0; x < BOARD_WIDTH; x++)
+            								board[y][x] = master_board_heart[y][x];
+							}
+  
 }
 
 

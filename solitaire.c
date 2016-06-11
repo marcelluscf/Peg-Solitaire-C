@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     int selection = 0;
-    while (selection != 3)
+    while (selection != 7)				// *3*
     {
         selection = process_menu();
         switch (selection)
@@ -29,6 +29,41 @@ int process_menu(void)
 {
     display_menu();
     return get_menu_input();
+}
+
+int process_menu2(void) 
+{
+	display_second_menu();
+	return selection_board();
+}
+
+int selection_board(void) {
+
+	char *end;
+    char input[INPUT_LENGTH];
+    int result;
+
+	while (TRUE)
+    {
+		display_second_menu();        
+
+		printf("Input numerical selection: ");
+
+        if (get_input(input) == NULL)
+        {
+            printf("\n");
+            return 7;						// *3*
+        }
+
+        result = strtol(input, &end, 10);
+
+        if (*end != '\0' || result < 1 || result > 6)			// troca de 2 para 6
+            printf("Invalid input.\n ");
+			
+        else
+            break;
+    }
+	return result;
 }
 
 int get_menu_input(void)
@@ -66,6 +101,18 @@ void display_menu(void)
     printf("3. Quit\n\n");
 }
 
+void display_second_menu(void)
+{
+	printf("\nChoose your board:\n");
+	printf("1. Standart Board\n");
+	printf("2. Square Board\n");
+	printf("3. German Board\n");
+	printf("4. European Board\n");
+	printf("5. Diamond Board\n");
+	printf("6. Especial Board\n");
+	printf("7. Quit\n\n\n");
+
+}
 
 void display_how_to_play(void)
 {

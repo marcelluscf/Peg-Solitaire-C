@@ -8,51 +8,59 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 	
     int x, y, z;
 	z = selection_board();
+
+	/* set the master line colors */
 	strcpy(master_color, COLOR_LINES);
+	/* Set the master hole color */	
 	strcpy(master_color_hole, COLOR_HOLE);
-		/*Master board*/
-	if(z == 1){
+	/* switch that select the displeyd board */
+	switch (z)
+	{
+		/* Master board */
+	case 1:
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board[y][x];
-	}
-			/*Square board*/
-	else if(z == 2){
+		break;
+		/* Square board */
+	case 2:
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board_square[y][x];
-	}
-				/*German board*/
-		else if(z == 3){
-    			for (y = 0; y < BOARD_HEIGHT; y++)
-        			for (x = 0; x < BOARD_WIDTH; x++)
-            			board[y][x] = master_board_german[y][x];
-		}
-
-					/*European board*/
-			else if(z == 4){
-    				for (y = 0; y < BOARD_HEIGHT; y++)
-        				for (x = 0; x < BOARD_WIDTH; x++)
-            				board[y][x] = master_board_european[y][x];
-			}
-							/*Diamond board*/
-					else if(z == 5){
-    						for (y = 0; y < BOARD_HEIGHT; y++)
-        						for (x = 0; x < BOARD_WIDTH; x++)
-            						board[y][x] = master_board_diamond[y][x];
-					}
-									/* Especial board*/
-							else if(z == 6){
-									strcpy(master_color, COLOR_VALENTINES);
-									strcpy(master_color_hole, COLOR_HOLE_VALENTINES);
-    								for (y = 0; y < BOARD_HEIGHT; y++)
-        								for (x = 0; x < BOARD_WIDTH; x++)
-            								board[y][x] = master_board_heart[y][x];
-							}
-											/* Board NULL*/
-									else if (z == 7){
-											*fimjogo = 7;
-									}									
+		break;
+		/* German board */
+	case 3:
+    	for (y = 0; y < BOARD_HEIGHT; y++)
+   			for (x = 0; x < BOARD_WIDTH; x++)
+           		board[y][x] = master_board_german[y][x];
+		break;
+		/* European board */
+	case 4:
+    	for (y = 0; y < BOARD_HEIGHT; y++)
+        	for (x = 0; x < BOARD_WIDTH; x++)
+            	board[y][x] = master_board_european[y][x];
+		break;	
+		/* Diamond board */
+	case 5:
+    	for (y = 0; y < BOARD_HEIGHT; y++)
+        	for (x = 0; x < BOARD_WIDTH; x++)
+        		board[y][x] = master_board_diamond[y][x];
+		break;
+		/* Especial board */
+	case 6:
+		/* RE-Set the special master line color */
+		strcpy(master_color, COLOR_VALENTINES);
+		/* RE-Set the special master hole color */
+		strcpy(master_color_hole, COLOR_HOLE_VALENTINES);
+    	for (y = 0; y < BOARD_HEIGHT; y++)
+        	for (x = 0; x < BOARD_WIDTH; x++)
+        		board[y][x] = master_board_heart[y][x];
+		break;
+		/* Board NULL */
+	case 7:
+		*fimjogo = 7;
+		break;
+	}											
 }
 
 

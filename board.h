@@ -95,18 +95,11 @@ static const enum cell_contents master_board_heart[BOARD_HEIGHT][BOARD_WIDTH] = 
 { INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
 { INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID }
         };
-/* Board NULL*/
-static const enum cell_contents master_board_null[BOARD_HEIGHT][BOARD_WIDTH] = {
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID }
-		};
+
+/* global variable to set the special color */
+static char master_color[50];
+/* global variable to set the special color */	
+static char master_color_hole[50];
 
 /* Requirement 2 - copies the contents of master_board to a local
  * board for each game */
@@ -132,9 +125,5 @@ BOOLEAN is_hole(int x, int y, enum cell_contents board[][BOARD_WIDTH]);
 
 
 int get_peg_count(enum cell_contents board[][BOARD_WIDTH]);			//body 119 board.c
-
-static char master_color[50];
-	
-static char master_color_hole[50];
 
 #endif

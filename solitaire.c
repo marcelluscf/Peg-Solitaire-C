@@ -106,11 +106,11 @@ void display_second_menu(void)
 {
 	printf("\nChoose your board:\n");
 	printf("1. Standard Board\n");
-	printf("2. Square Board\n");
-	printf("3. German Board\n");
-	printf("4. European Board\n");
-	printf("5. Diamond Board\n");
-	printf("6. Especial Board\n");
+	printf("2. Square's Board\n");
+	printf("3. German's Board\n");
+	printf("4. European's Board\n");
+	printf("5. Diamond's Board\n");
+	printf("6. Valentine's Board\n");
 	printf("7. Main menu\n\n\n");
 
 }

@@ -12,6 +12,8 @@
 #define COLOR_LINES     "\x1b[2;34m"    /* blue */
 #define COLOR_HOLE      "\x1b[2;34m"    /* blue */
 #define COLOR_PEG       "\x1b[1;37m"    /* white */
+#define COLOR_VALENTINES "\x1b[31;1m"	/*red*/
+#define COLOR_HOLE_VALENTINES      "\x1b[31;1m" 
 
 enum cell_contents
 {
@@ -130,5 +132,9 @@ BOOLEAN is_hole(int x, int y, enum cell_contents board[][BOARD_WIDTH]);
 
 
 int get_peg_count(enum cell_contents board[][BOARD_WIDTH]);			//body 119 board.c
+
+static char master_color[50];
+	
+static char master_color_hole[50];
 
 #endif

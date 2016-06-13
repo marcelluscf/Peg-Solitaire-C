@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "board.h"
 
 /* copies the master board to a local copy for each game */
@@ -7,6 +8,8 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 	
     int x, y, z;
 	z = selection_board();
+	strcpy(master_color, COLOR_LINES);
+	strcpy(master_color_hole, COLOR_HOLE);
 		/*Master board*/
 	if(z == 1){
     	for (y = 0; y < BOARD_HEIGHT; y++)
@@ -40,6 +43,8 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 					}
 									/* Especial board*/
 							else if(z == 6){
+									strcpy(master_color, COLOR_VALENTINES);
+									strcpy(master_color_hole, COLOR_HOLE_VALENTINES);
     								for (y = 0; y < BOARD_HEIGHT; y++)
         								for (x = 0; x < BOARD_WIDTH; x++)
             								board[y][x] = master_board_heart[y][x];
@@ -47,10 +52,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 											/* Board NULL*/
 									else if (z == 7){
 											*fimjogo = 7;
-											for (y = 0; y < BOARD_HEIGHT; y++)
-        										for (x = 0; x < BOARD_WIDTH; x++)
-            										board[y][x] = master_board_heart[y][x];
-									}
+									}									
 }
 
 
@@ -76,7 +78,8 @@ void display_line_row(int y, enum cell_contents board[][BOARD_WIDTH])		//header 
     int x;
 
     printf("   ");
-    printf(COLOR_LINES);
+	printf("%s", master_color);
+
     /* purposely go past array bounds to print final "+" */
     for (x = 0; x <= BOARD_WIDTH; x++)
     {
@@ -107,7 +110,10 @@ void display_peg_row(int y, enum cell_contents board[][BOARD_WIDTH])			//header 
     for (x = 0; x <= BOARD_WIDTH; x++)
     {
         /* print border if adjacent cell is valid */
-        printf(COLOR_LINES);
+     
+    	printf("%s", master_color);
+		
+
         printf(is_valid(x, y, board) || is_valid(x - 1, y, board) ? "|" : " ");
         printf(COLOR_RESET);
 
@@ -116,7 +122,7 @@ void display_peg_row(int y, enum cell_contents board[][BOARD_WIDTH])			//header 
             if (is_peg(x, y, board))
                 printf("%s o %s", COLOR_PEG, COLOR_RESET);
             else if (is_hole(x, y, board))
-                printf("%s . %s", COLOR_HOLE, COLOR_RESET);
+                printf("%s . %s", master_color_hole, COLOR_RESET);
         }
         else
             printf("   ");

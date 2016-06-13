@@ -10,7 +10,7 @@ void play_game(void)
     {
         enum move_result move_result = SUCCESSFUL_MOVE;
         enum cell_contents board[BOARD_HEIGHT][BOARD_WIDTH];
-        init_board(board, &fimjogo);			//body in line 5 board.c, header in in line 35 from board.h					
+        init_board(board, &fimjogo);									//body in line 5 board.c, header in in line 35 from board.h					
 		
 		
 		if (fimjogo == 7)
@@ -29,27 +29,6 @@ void play_game(void)
     while (process_ask_play_again());
 }
 
-/* Requirement 3 - controls the flow of play in the game */
-//void play_game(void)
-//{
-//    do
-//    {
-//        enum move_result move_result = SUCCESSFUL_MOVE;
-//        enum cell_contents board[BOARD_HEIGHT][BOARD_WIDTH];
-//        init_board(board);			//body in line 5 board.c, header in in line 35 from board.h					
-// 
-//        /* game loop */
-//        while (!is_game_over(board) && move_result != QUIT_GAME)
-//            move_result = player_move(board);
-//
-//        /* if result is QUIT_GAME, break prematurely */
-//        if (move_result == QUIT_GAME)
-//            break;
-//
-//        display_result(board);
-//    }
-//   while (process_ask_play_again());
-//}
 
 void display_result(enum cell_contents board[][BOARD_WIDTH])
 {

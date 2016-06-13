@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     int selection = 0;
-    while (selection != 3)				// *3*
+    while (selection != 3)				
     {
         selection = process_menu();
         switch (selection)
@@ -30,13 +30,13 @@ int process_menu(void)
     display_menu();
     return get_menu_input();
 }
-
+/* Calls the second menu */
 int process_menu2(void) 
 {
 	display_second_menu();
 	return selection_board();
 }
-
+/* This will set the board */
 int selection_board(void) {
 
 	char *end;
@@ -93,7 +93,7 @@ int get_menu_input(void)
 
     return result;
 }
-
+/* Display the main menu */
 void display_menu(void)
 {
     printf("\n\n\nPEG SOLITAIRE\n\n");
@@ -101,7 +101,7 @@ void display_menu(void)
     printf("2. How to Play\n");
     printf("3. Quit\n\n");
 }
-
+/* Display the second menu */
 void display_second_menu(void)
 {
 	printf("\nChoose your board:\n");
@@ -114,7 +114,7 @@ void display_second_menu(void)
 	printf("7. Main menu\n\n\n");
 
 }
-
+/* Display the help menu */
 void display_how_to_play(void)
 {
     printf("\n\n\nHOW TO PLAY");

@@ -144,7 +144,8 @@ void display_horizontal_coords(void)								//header line 44 board.h
     int i;
 
     printf("\n");
-    printf("   "); /* vertical coords space */
+    printf("   "); 
+	/* vertical coords space */
     for (i = 0; i < BOARD_WIDTH; i++)
         printf("  %c ", number_to_letter(i));
 

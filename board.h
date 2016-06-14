@@ -101,6 +101,8 @@ static char master_color[50];
 /* global variable to set the special color */	
 static char master_color_hole[50];
 
+static int master_title;
+
 /* Requirement 2 - copies the contents of master_board to a local
  * board for each game */
 void init_board(enum cell_contents board[][BOARD_WIDTH], int*);			//body in line 5 board.c, appears in line 13 game.c
@@ -125,5 +127,19 @@ BOOLEAN is_hole(int x, int y, enum cell_contents board[][BOARD_WIDTH]);
 
 
 int get_peg_count(enum cell_contents board[][BOARD_WIDTH]);			//body 119 board.c
+
+void title(void);
+
+void title_standart(void);
+
+void title_square(void);
+
+void title_german(void);
+
+void title_european(void);
+
+void title_diamond(void);
+
+void title_heart(void);
 
 #endif

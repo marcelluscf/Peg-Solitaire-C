@@ -8,7 +8,6 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 	
     int x, y, z;
 	z = selection_board();
-
 	/* set the master line colors */
 	strcpy(master_color, COLOR_LINES);
 	/* Set the master hole color */	
@@ -22,6 +21,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 		for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board[y][x];
+		master_title = 1;
 		break;
 		/* Square board */
 	case 2:
@@ -29,6 +29,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board_square[y][x];
+		master_title = 2;
 		break;
 		/* German board */
 	case 3:
@@ -36,6 +37,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
     	for (y = 0; y < BOARD_HEIGHT; y++)
    			for (x = 0; x < BOARD_WIDTH; x++)
            		board[y][x] = master_board_german[y][x];
+		master_title = 3;		
 		break;
 		/* European board */
 	case 4:
@@ -43,6 +45,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board_european[y][x];
+		master_title = 4;
 		break;	
 		/* Diamond board */
 	case 5:
@@ -50,6 +53,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
         		board[y][x] = master_board_diamond[y][x];
+		master_title = 5;
 		break;
 		/* Especial board */
 	case 6:
@@ -61,6 +65,7 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
         		board[y][x] = master_board_heart[y][x];
+		master_title = 6;
 		break;
 		/* Board NULL */
 	case 7:
@@ -69,25 +74,109 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 	}											
 }
 
+void title(void)
+{
+	switch (master_title)
+	{
+		case 1:
+			title_standart();
+			break;
+		case 2:
+			title_square();
+			break;
+		case 3:
+			title_german();
+			break;
+		case 4:
+			title_european();
+			break;
+		case 5:
+			title_diamond();
+			break;
+		case 6:
+			title_heart();
+			break;
+	}		
+}
+
+void title_standart(void)
+{
+	printf(" _____   _____   _____   _   _   ____    _____   _____   _____\n");
+	printf("|  ___| |_   _| |  _  | | \\ | | |  _ \\  |  _  | |     | |_   _|\n");
+	printf("|___  |   | |   | |_| | |  \\| | | | \\ \\ | |_| | |    _|   | |\n");
+	printf(" ___| |   | |   |  _  | | |\\  | | |_/ / |  _  | | |\\ \\    | |\n");
+	printf("|_____|   |_|   |_| |_| |_| \\_| |____/  |_| |_| |_| \\_\\   |_|\n\n");
+
+}
+
+void title_square(void)
+{
+	printf(" _____   _____   _   _   _____   _____   _____\n");
+	printf("|  ___| |  _  | | | | | |  _  | |     | |  ___|\n");
+	printf("|___  | | | | | | | | | | |_| | |    _| | |_\n");
+	printf(" ___| | | |_| | | |_| | |  _  | | |\\ \\  |   |_\n");
+	printf("|_____| |____ | |_____| |_| |_| |_| \\_\\ |_____|\n");
+	printf("             \\|\n\n");
+}
+
+void title_german(void)
+{
+	printf(" _____   _____   _____   _    _   _____   _   _\n");
+	printf("|  ___| |  ___| |     | | \\  / | |  _  | | \\ | |\n");
+	printf("| |  _  | |_    |    _| |  \\/  | | |_| | |  \\| |\n");
+	printf("| |_| | |   |_  | |\\ \\  | |\\/| | |  _  | | |\\  |\n");
+	printf("|_____| |_____| |_| \\_\\ |_|  |_| |_| |_| |_| \\_|\n\n");
+}
+
+void title_european(void)
+{
+	printf(" _____   _   _   _____   _____   _____   _____   _____   _   _\n");
+	printf("|  ___| | | | | |     | |  _  | |     | |  ___| |  _  | | \\ | |\n");
+	printf("| |_    | | | | |    _| | | | | |  ___| | |_    | |_| | |  \\| |\n");
+	printf("|   |_  | |_| | | |\\ \\  | |_| | | |     |   |_  |  _  | | |\\  |\n");
+	printf("|_____| |_____| |_| \\_\\ |_____| |_|     |_____| |_| |_| |_| \\_|\n\n");
+}
+
+void title_diamond(void)
+{
+	printf(" ____    _   _____   _    _   _____   _   _   ____\n");
+	printf("|  _ \\  |_| |  _  | | \\  / | |  _  | | \\ | | |  _ \\ \n");
+	printf("| | \\ \\  _  | |_| | |  \\/  | | | | | |  \\| | | | \\ \\ \n");
+	printf("| |_/ / | | |  _  | | |\\/| | | |_| | | |\\  | | |_/ /\n");
+	printf("|____/  |_| |_| |_| |_|  |_| |_____| |_| \\_| |____/\n\n");
+}
+void title_heart(void)
+{
+	printf("__    __  _____   _       _____   _   _   _____   _   _   _   _____   _   _____\n");
+	printf("\\ \\  / / |  _  | | |     |  ___| | \\ | | |_   _| |_| | \\ | | |  ___| | | |  ___|\n");
+	printf(" \\ \\/ /	 | |_| | | |     | |_    |  \\| |   | |    _  |  \\| | | |_    |/  |___  |\n");
+	printf("  \\  /	 |  _  | | |___  |   |_  | |\\  |   | |   | | | |\\  | |   |_       ___| |\n");
+	printf("   \\/    |_| |_| |_____| |_____| |_| \\_|   |_|   |_| |_| \\_| |_____|     |_____|\n\n");
+}
 
 /* display the game board to the screen */
 void display_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 39 from board.h		
 {
+
     int y, count;
 
     printf("\n\n\n");
 	
+	title();
+	
+	printf ("\n");
+	
 	count = display_scoreboard(board);
 	
 	display_movements (count);
-	
-	for (y = 0; y < BOARD_HEIGHT; y++)
+
+    for (y = 0; y < BOARD_HEIGHT; y++)
     {
         display_line_row(y, board);						//header in line 42 from board.h, body in line 30 from board.c
         display_peg_row(y, board);						//header line 44 board.h, body 58 body.c
     }
     display_line_row(BOARD_HEIGHT, board);					//header in line 42 from board.h , body in line 30 from board.c
-    display_horizontal_coords();						//header line 44 board.h, body line 85 board.c
+    display_horizontal_coords();					//header line 44 board.h, body line 85 board.c
 }
 
 

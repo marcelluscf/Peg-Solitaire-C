@@ -18,6 +18,7 @@
 enum cell_contents
 {
     INVALID, HOLE, PEG
+ 
 };
 
 /* The initial game board - this is an example of the occasional
@@ -35,17 +36,19 @@ static const enum cell_contents master_board[BOARD_HEIGHT][BOARD_WIDTH] = {
 { INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID }
         };
 
+
 /* Square Board*/
 static const enum cell_contents master_board_square[BOARD_HEIGHT][BOARD_WIDTH] = {
-{ PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID, INVALID },
-{ PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID, INVALID },
-{ PEG, PEG, PEG, HOLE, PEG, PEG, INVALID, INVALID, INVALID },
-{ PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID, INVALID },
-{ PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID, INVALID },
-{ PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID, INVALID },
+{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
+{ INVALID, PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID},
+{ INVALID, PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID},
+{ INVALID, PEG, PEG, PEG, HOLE, PEG, PEG, INVALID, INVALID},
+{ INVALID, PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID },
+{ INVALID, PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID },
+{ INVALID, PEG, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID },
 { INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
 { INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID },
-{ INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID, INVALID }
+
         };
 /* German Board*/
 static const enum cell_contents master_board_german[BOARD_HEIGHT][BOARD_WIDTH] = {
@@ -87,7 +90,7 @@ static const enum cell_contents master_board_diamond[BOARD_HEIGHT][BOARD_WIDTH] 
 static const enum cell_contents master_board_heart[BOARD_HEIGHT][BOARD_WIDTH] = {
 { INVALID, PEG, PEG, PEG, PEG, PEG, PEG, PEG, INVALID },
 { PEG, PEG, PEG, PEG, PEG, PEG, PEG, PEG, PEG },
-{ PEG, PEG, PEG, HOLE, PEG, PEG, PEG, PEG, PEG },
+{ PEG, PEG, PEG, PEG, HOLE, PEG, PEG, PEG, PEG },
 { INVALID, PEG, PEG, PEG, PEG, PEG, PEG, PEG, INVALID },
 { INVALID, INVALID, PEG, PEG, PEG, PEG, PEG, INVALID, INVALID },
 { INVALID, INVALID, INVALID, PEG, PEG, PEG, INVALID, INVALID, INVALID},
@@ -100,6 +103,8 @@ static const enum cell_contents master_board_heart[BOARD_HEIGHT][BOARD_WIDTH] = 
 static char master_color[50];
 /* global variable to set the special color */	
 static char master_color_hole[50];
+
+static int total_pegs;
 
 /* Requirement 2 - copies the contents of master_board to a local
  * board for each game */
@@ -116,6 +121,10 @@ void display_peg_row(int y, enum cell_contents board[][BOARD_WIDTH]);		//body 58
 
 void display_horizontal_coords(void);						//body line 85 board.c, appears line 26
 
+int display_scoreboard (enum cell_contents board [][BOARD_WIDTH]);
+
+void display_movements (int);
+
 
 BOOLEAN is_valid(int x, int y, enum cell_contents board[][BOARD_WIDTH]);
 
@@ -125,5 +134,7 @@ BOOLEAN is_hole(int x, int y, enum cell_contents board[][BOARD_WIDTH]);
 
 
 int get_peg_count(enum cell_contents board[][BOARD_WIDTH]);			//body 119 board.c
+
+
 
 #endif

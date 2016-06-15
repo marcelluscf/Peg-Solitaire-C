@@ -18,36 +18,42 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 	{
 		/* Master board */
 	case 1:
-    	for (y = 0; y < BOARD_HEIGHT; y++)
+		total_pegs = 32;    	
+		for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board[y][x];
 		break;
 		/* Square board */
 	case 2:
+		total_pegs = 35;
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board_square[y][x];
 		break;
 		/* German board */
 	case 3:
+		total_pegs = 44;
     	for (y = 0; y < BOARD_HEIGHT; y++)
    			for (x = 0; x < BOARD_WIDTH; x++)
            		board[y][x] = master_board_german[y][x];
 		break;
 		/* European board */
 	case 4:
+		total_pegs = 36;
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
             	board[y][x] = master_board_european[y][x];
 		break;	
 		/* Diamond board */
 	case 5:
+		total_pegs = 39;
     	for (y = 0; y < BOARD_HEIGHT; y++)
         	for (x = 0; x < BOARD_WIDTH; x++)
         		board[y][x] = master_board_diamond[y][x];
 		break;
 		/* Especial board */
 	case 6:
+		total_pegs = 40;
 		/* RE-Set the special master line color */
 		strcpy(master_color, COLOR_VALENTINES);
 		/* RE-Set the special master hole color */
@@ -67,10 +73,15 @@ void init_board(enum cell_contents board[][BOARD_WIDTH], int* fimjogo)			//heade
 /* display the game board to the screen */
 void display_board(enum cell_contents board[][BOARD_WIDTH])			//header in line 39 from board.h		
 {
-    int y;
+    int y, count;
 
     printf("\n\n\n");
-    for (y = 0; y < BOARD_HEIGHT; y++)
+	
+	count = display_scoreboard(board);
+	
+	display_movements (count);
+	
+	for (y = 0; y < BOARD_HEIGHT; y++)
     {
         display_line_row(y, board);						//header in line 42 from board.h, body in line 30 from board.c
         display_peg_row(y, board);						//header line 44 board.h, body 58 body.c
@@ -152,6 +163,39 @@ void display_horizontal_coords(void)								//header line 44 board.h
     printf("\n");
 }
 
+int display_scoreboard (enum cell_contents board[][BOARD_WIDTH]) {
+
+	int peg = get_peg_count(board);
+	printf ("%s", "+--------------+\n");	
+	printf ("%s", "|");
+	printf (COLOR_VALENTINES);
+	if (peg < 10)
+		printf ("%s : %i", "PEGS LEFT" ,peg);
+	else
+		printf ("%s : %i", "PEGS LEFT" ,peg);
+	printf (COLOR_RESET);
+	printf ("|");
+	printf ("\n%s", "+--------------+\n");
+
+	return peg;
+}
+
+void display_movements (int y) {
+
+	int peg = total_pegs - y;
+	printf ("%s", "+---------------+\n");	
+	printf ("%s", "|");
+	printf (COLOR_VALENTINES);
+	//to fix the layout problem	
+	if (peg < 10)
+		printf ("%s :  %i", "MOVES DONE" ,peg);
+	else
+		printf ("%s : %i", "MOVES DONE" ,peg);
+	printf (COLOR_RESET);
+	printf ("|");
+	printf ("\n%s", "+---------------+\n");
+
+}
 
 BOOLEAN is_valid(int x, int y, enum cell_contents board[][BOARD_WIDTH])
 {
@@ -183,3 +227,5 @@ int get_peg_count(enum cell_contents board[][BOARD_WIDTH])			//header line 56
             if (board[y][x] == PEG) count++;
     return count;
 }
+
+

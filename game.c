@@ -195,6 +195,7 @@ enum move_result player_move(enum cell_contents board[][BOARD_WIDTH])
         else
             print_move_validity_string(move_validity);
     }
+	
     return SUCCESSFUL_MOVE;
 }
 

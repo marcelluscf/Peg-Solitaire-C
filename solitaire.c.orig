@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     int selection = 0;
-    while (selection != 3)
+    while (selection != 3)				
     {
         selection = process_menu();
         switch (selection)
@@ -31,40 +31,40 @@ int process_menu(void)
     return get_menu_input();
 }
 /* Calls the second menu */
-int process_menu2(void)
+int process_menu2(void) 
 {
-    display_second_menu();
-    return selection_board();
+	display_second_menu();
+	return selection_board();
 }
 /* This will set the board */
 int selection_board(void) {
 
-    char *end;
+	char *end;
     char input[INPUT_LENGTH];
     int result;
 
-    while (TRUE)
+	while (TRUE)
     {
-        display_second_menu();
+		display_second_menu();        
 
-        printf("Input numerical selection: ");
+		printf("Input numerical selection: ");
 
         if (get_input(input) == NULL)
         {
             printf("\n");
-            return 7;						
+            return 7;						// *3*
         }
 
         result = strtol(input, &end, 10);
 
-        if (*end != '\0' || result < 1 || result > 7)			
+        if (*end != '\0' || result < 1 || result > 7)			// troca de 2 para 6
             printf("Invalid input.\n ");
-
-        else
-            break;
-
+				
+		else
+			break;
+		
     }
-    return result;
+	return result;
 }
 
 int get_menu_input(void)
@@ -104,14 +104,14 @@ void display_menu(void)
 /* Display the second menu */
 void display_second_menu(void)
 {
-    printf("\nChoose your board:\n");
-    printf("1. Standard Board\n");
-    printf("2. Square's Board\n");
-    printf("3. German's Board\n");
-    printf("4. European's Board\n");
-    printf("5. Diamond's Board\n");
-    printf("6. Valentine's Board\n");
-    printf("7. Main menu\n\n\n");
+	printf("\nChoose your board:\n");
+	printf("1. Standard Board\n");
+	printf("2. Square's Board\n");
+	printf("3. German's Board\n");
+	printf("4. European's Board\n");
+	printf("5. Diamond's Board\n");
+	printf("6. Valentine's Board\n");
+	printf("7. Main menu\n\n\n");
 
 }
 /* Display the help menu */
@@ -137,5 +137,5 @@ void display_how_to_play(void)
     printf("\nhyphens and tabs can also be used.");
 
     printf("\n\n\nPress ENTER to return to menu");
-    if (getchar() != '\n') read_rest_of_line();			
+    if (getchar() != '\n') read_rest_of_line();			//header in line 12 from utility.h			
 }

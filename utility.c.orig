@@ -5,7 +5,7 @@
 /* Tidy up residual data in stdin when encountering an error. You will
  * need to use this when there is a possibility that there will be
  * leftover characters in the input buffer. */
-void read_rest_of_line(void)			
+void read_rest_of_line(void)			//header in line 12 from utility.h
 {
     int ch;
     /* remove all characters from the buffer */
@@ -18,7 +18,7 @@ void read_rest_of_line(void)
 
 /* custom get input function that handles buffer overflow.
    returns the return value of fgets */
-char *get_input(char *buffer)			
+char *get_input(char *buffer)			//header in line 15 from utility.h
 {
     char *result = fgets(buffer, INPUT_LENGTH, stdin);
 
@@ -26,7 +26,7 @@ char *get_input(char *buffer)
     {
         /* if no newline character, buffer overflown */
         if (buffer[strlen(buffer) - 1] != '\n')
-            read_rest_of_line();			
+            read_rest_of_line();			//header in line 12 from utility.h			
 
         /* replace newline character with null terminator */
         buffer[strlen(buffer) - 1] = '\0';
@@ -38,12 +38,12 @@ char *get_input(char *buffer)
 
 
 /* convert numeric grid value to letter (e.g. 2 to B) */
-char number_to_letter(int i)			
+char number_to_letter(int i)			//header in line 18 from utility.h
 {
     return i + 'A';
 }
 
-int letter_to_number(char c)			
+int letter_to_number(char c)			//header in line 20 from utility.h
 {
     return c - 'A';
 }
